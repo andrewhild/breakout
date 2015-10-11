@@ -15,15 +15,17 @@ public class Field extends JPanel implements ActionListener, KeyListener{
 	private static final int frameRate = 60;
 	private HashMap<Point,Block> blocks;
 	private Paddle paddle;
-	private Ball b;
+	private Ball ball;
 	private Timer timer;
+	private long lastTime;
 	
 	public Field(){
 		timer = new Timer(100,this);
 		timer.start();
-		paddle = new Paddle(290,795,20,10,getWidth());
-		System.out.println(this.getX());
-		System.out.println(this.getY());
+		paddle = new Paddle(290,795,20,10,800);
+		ball = new Ball(0,0,0);
+		addKeyListener(this);
+		setFocusable(true);
 	}
 	
 	/**
@@ -31,6 +33,11 @@ public class Field extends JPanel implements ActionListener, KeyListener{
 	 */
 	private void update(){
 		//check win state
+		//Update paddle and ball positions
+		long newTime = System.currentTimeMillis();
+		ball.updatePosition(newTime-lastTime);
+		paddle.updatePosition(newTime-lastTime);
+		lastTime = newTime;
 		//check and resolve collisions
 		//paint
 		paint(this.getGraphics());
@@ -56,12 +63,17 @@ public class Field extends JPanel implements ActionListener, KeyListener{
 	@Override
 	public void keyPressed(KeyEvent e) {
 		int code = e.getKeyCode();
-		
+		if(code==KeyEvent.VK_RIGHT)
+			paddle.setVelocity(new float[] {5,0});
+		else if(code==KeyEvent.VK_LEFT)
+			paddle.setVelocity(new float[] {-5,0});
 	}
 	
 	@Override
 	public void keyReleased(KeyEvent e) {
 		int code = e.getKeyCode();
+		if(code==KeyEvent.VK_RIGHT||code==KeyEvent.VK_LEFT)
+			paddle.setVelocity(new float[] {0,0});
 		
 	}
 

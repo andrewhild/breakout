@@ -4,6 +4,15 @@ public class Ball {
 	private float vx = 0, vy = 0;
 	private int x, y, length, radius, fieldSize;
 	
+	/**
+	 * Instantiates a ball object
+	 * @param x0
+	 * 	initial x-coordinate of center
+	 * @param y0
+	 * 	initial y-coordinate of center
+	 * @param r
+	 * 	radius of ball
+	 */
 	public Ball(int x0, int y0, int r){
 		x = x0;
 		y = y0;

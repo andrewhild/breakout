@@ -24,16 +24,16 @@ public class Paddle {
 	/**
 	 * Update paddle position in response to player input
 	 * @param elapsed
-	 * 	The number of seconds that have passed since the last call to this method
+	 * 	The number of milliseconds that have passed since the last call to this method
 	 */
 	public void updatePosition(long elapsed){
-		x += vx*elapsed;
-		y += vy*elapsed;
+		x += vx*elapsed/10;
+		y += vy*elapsed/10;
 		
 		//Make sure the paddle cannot go offscreen
 		if(x-length/2<0)
 			x=length/2;
-		if(x+length/2>fieldSize)
+		else if(x+length/2>fieldSize)
 			x = fieldSize-length/2;
 	}
 
