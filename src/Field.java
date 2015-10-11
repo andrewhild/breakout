@@ -39,18 +39,18 @@ public class Field extends JPanel implements ActionListener, KeyListener{
 
 	@Override
 	public void keyPressed(KeyEvent e) {
-		// TODO Auto-generated method stub
+		int code = e.getKeyCode();
+		
+	}
+	
+	@Override
+	public void keyReleased(KeyEvent e) {
+		int code = e.getKeyCode();
 		
 	}
 
 	//Hooray and taz'dingo for vestigial methods
 	
-	@Override
-	public void keyReleased(KeyEvent arg0) {
-		// TODO Auto-generated method stub
-		
-	}
-
 	@Override
 	public void keyTyped(KeyEvent arg0) {
 		// TODO Auto-generated method stub
