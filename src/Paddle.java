@@ -31,9 +31,9 @@ public class Paddle {
 		y += vy*elapsed/10;
 		
 		//Make sure the paddle cannot go offscreen
-		if(x-length/2<0)
+		if(x-length/2<=0)
 			x=length/2;
-		else if(x+length/2>fieldSize)
+		else if(x+length/2>=fieldSize)
 			x = fieldSize-length/2;
 	}
 

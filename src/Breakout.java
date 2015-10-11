@@ -21,6 +21,7 @@ public class Breakout extends JFrame {
 		JFrame game = new Breakout();
 		JPanel field = new Field();
 		field.setPreferredSize(new Dimension(600,800));
+		game.getContentPane().setPreferredSize(new Dimension(600, 800));
 		game.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 		game.add(field);
 		game.pack();

@@ -22,7 +22,7 @@ public class Field extends JPanel implements ActionListener, KeyListener{
 	public Field(){
 		timer = new Timer(100,this);
 		timer.start();
-		paddle = new Paddle(290,795,20,10,800);
+		paddle = new Paddle(290,795,30,10,600);
 		ball = new Ball(0,0,0);
 		addKeyListener(this);
 		setFocusable(true);
