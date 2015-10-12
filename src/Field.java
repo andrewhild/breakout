@@ -20,12 +20,14 @@ public class Field extends JPanel implements ActionListener, KeyListener{
 	private long lastTime;
 	
 	public Field(){
-		timer = new Timer(100,this);
+		timer = new Timer(17,this);
 		timer.start();
 		paddle = new Paddle(290,795,30,10,600);
 		ball = new Ball(0,0,0);
 		addKeyListener(this);
 		setFocusable(true);
+		// enable openGL pipeline
+		System.setProperty("sun.java2d.opengl", "True");
 	}
 	
 	/**
@@ -40,7 +42,7 @@ public class Field extends JPanel implements ActionListener, KeyListener{
 		lastTime = newTime;
 		//check and resolve collisions
 		//paint
-		paint(this.getGraphics());
+		repaint();
 	}
 	
 	/**
@@ -48,16 +50,15 @@ public class Field extends JPanel implements ActionListener, KeyListener{
 	 * @param g
 	 * 	The graphics context used to paint
 	 */
-	public void paint(Graphics g){
-		super.paint(g);
+	public void paintComponent(Graphics g){
+		super.paintComponent(g);
 		g.setColor(Color.GRAY);
 		g.fillRect(paddle.x-paddle.length/2, paddle.y-paddle.height/2, paddle.length, paddle.height);
 	}
 
 	@Override
-	public void actionPerformed(ActionEvent arg0) {
+	public void actionPerformed(ActionEvent e) {
 		update();
-		
 	}
 
 	@Override
@@ -74,7 +75,6 @@ public class Field extends JPanel implements ActionListener, KeyListener{
 		int code = e.getKeyCode();
 		if(code==KeyEvent.VK_RIGHT||code==KeyEvent.VK_LEFT)
 			paddle.setVelocity(new float[] {0,0});
-		
 	}
 
 	//Hooray and taz'dingo for vestigial methods

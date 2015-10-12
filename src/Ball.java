@@ -2,7 +2,7 @@
 public class Ball {
 	
 	private float vx = 0, vy = 0;
-	private int x, y, length, radius, fieldSize;
+	int x, y, length, radius, fieldSize;
 	
 	/**
 	 * Instantiates a ball object

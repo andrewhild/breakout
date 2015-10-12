@@ -21,6 +21,7 @@ public class Paddle {
 		vx = args[0];
 		vy = args[1];
 	}
+	
 	/**
 	 * Update paddle position in response to player input
 	 * @param elapsed
